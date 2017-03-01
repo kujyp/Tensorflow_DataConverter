@@ -6,7 +6,7 @@ def normalize_images(images):
 
 def normalize_image(image):
     image = gray(image)
-    image = resize(image,[28,48])
+    image = resize(image,[28,48]) # todo 28,48 -> flexible
 
     return image
 
