@@ -12,3 +12,6 @@ def load_allpath(path):
                 filepath = os.path.join(root, file)
                 res.append(filepath)
     return res
+
+def get_folder_name(path):
+    return os.path.basename(os.path.dirname(path))
