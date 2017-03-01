@@ -2,7 +2,7 @@ import numpy
 
 
 def convert_images_to_numpy(images):
-    arr = numpy.empty([len(images), 48, 28], dtype=float)
+    arr = numpy.empty([len(images), 48, 28], dtype=float) # todo 28,48 -> flexible
     for idx, image in enumerate(images):
         arr[idx][:][:] = convert_image_to_numpy(image)
     return arr
