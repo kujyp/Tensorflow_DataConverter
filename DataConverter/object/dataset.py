@@ -27,7 +27,7 @@ class DataSet(object):
 
         # Convert shape from [num examples, rows, columns, depth]
         # to [num examples, rows*columns] (assuming depth == 1)
-        if reshape:
+        if reshape and images.ndim is 3:
             #assert images.shape[3] == 1
             images = images.reshape(images.shape[0],
                                     images.shape[1] * images.shape[2])
