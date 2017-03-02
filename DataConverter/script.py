@@ -9,4 +9,9 @@ images, labels = load_data(rootdir)
 images = normalize_images(images)
 images, labels = convert_data_to_numpy(images, labels)
 print("Load success : " + str(images.shape))
-show_nbyn_images(images)
+#show_nbyn_images(images)
+
+from DataConverter import inputdata
+datasets = inputdata.read_datasets(rootdir)
+show_nbyn_images(datasets.train.images)
+show_nbyn_images(datasets.test.images)
