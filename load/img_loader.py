@@ -1,29 +1,9 @@
 from PIL import Image
-from .dir_loader import load_allpath,get_folder_name
+from .dir_loader import load_allpath
+from .label_loader import load_alllabel
 
 
-def load_data(root):
-    paths = load_allpath(root)
-    return load_allimage(paths), load_alllabel(paths)
-
-
-def load_image(path):
-    return Image.open(path)
-
-def load_allimage(paths):
-    res = []
-
-    for path in paths:
-        res.append(load_image(path))
-
-    return res
-
-def load_label(path, map):
-    return map[get_folder_name(path)]
-
-def load_alllabel(paths):
-    res = []
-    map = {
+img_label_map = {
         '0': 0,
         '1': 1,
         '2': 2,
@@ -36,7 +16,18 @@ def load_alllabel(paths):
         '9': 9,
     }
 
+def load_img_data(root):
+    paths = load_allpath(root)
+    return load_allimage(paths), load_alllabel(paths, img_label_map)
+
+def load_image(path):
+    return Image.open(path)
+
+def load_allimage(paths):
+    res = []
+
     for path in paths:
-        res.append(load_label(path, map))
+        res.append(load_image(path))
 
     return res
+
