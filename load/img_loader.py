@@ -1,5 +1,5 @@
 from PIL import Image
-from loaddir import load_allpath,get_folder_name
+from .dir_loader import load_allpath,get_folder_name
 
 
 def load_data(root):
