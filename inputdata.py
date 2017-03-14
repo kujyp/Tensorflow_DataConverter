@@ -5,6 +5,7 @@ from .load.img_converter import convert_data_to_numpy
 from .process.normalizer_pillow import normalize_images
 from .visualize.visualizer_numpy import show_nbyn_images
 from .object.dataset import DataSet, Datasets
+from .process.preprocess_audio import crop_sounds
 
 
 def input_image_data(root):
@@ -18,14 +19,15 @@ def input_image_data(root):
     return images, labels
 
 def input_snd_mfcc_data(root):
-    sounds, labels = load_snd_mfcc_data(root)
-    sounds = normalize_images(sounds)
-    sounds, labels = convert_data_to_numpy(sounds, labels)
-    print("Load success : " + str(sounds.shape))
+    mfccs, labels = load_snd_mfcc_data(root)
+#    sounds = normalize_images(sounds)
+#    sounds, labels = convert_data_to_numpy(sounds, labels)
+    for mfcc in mfccs:
+        print("Load success : " + str(mfcc.shape))
     #show_nbyn_images(images)
 
-    sounds, labels = shuffle_numpy_together(sounds, labels)
-    return sounds, labels
+    #sounds, labels = shuffle_numpy_together(sounds, labels)
+    return mfccs, labels
 
 def read_datasets(train_dir,
                    reshape=True,
