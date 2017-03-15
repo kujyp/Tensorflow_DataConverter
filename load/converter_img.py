@@ -12,7 +12,7 @@ def convert_labels_to_numpy(labels):
     return np_labels
 
 def convert_images_to_numpy(images):
-    arr = numpy.empty([len(images), 48, 28], dtype=float) # todo 28,48 -> flexible
+    arr = numpy.empty([len(images), images[0].shape[0], images[0].shape[1]], dtype=float)
     for idx, image in enumerate(images):
         arr[idx][:][:] = convert_image_to_numpy(image)
     return arr
