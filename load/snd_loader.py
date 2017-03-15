@@ -27,8 +27,8 @@ def load_snd_mfcc_data(root):
     paths = load_allpath(root)
 
     ys, srs = load_allsnd(paths)
-    st, dur = 0.45, 1.0
-    ys = crop_sounds(ys, srs, [st, st + dur])
+    dur = 1.0
+    ys = crop_sounds(ys, srs, dur)
     return convert_snd_to_mfcc(ys, srs), load_alllabel(paths, snd_label_map)
 
 def load_snd(path):

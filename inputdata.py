@@ -2,6 +2,7 @@ from .load.classifier import shuffle_numpy_together
 from .load.img_loader import load_img_data
 from .load.snd_loader import load_snd_mfcc_data
 from .load.converter_img import convert_data_to_numpy
+from .load.converter_snd import convert_sound_data_to_numpy
 from .process.normalizer_pillow import normalize_images
 from .process.normalizer_numpy import normalize_numpy
 from .visualize.visualizer_numpy import show_nbyn_images
@@ -43,7 +44,7 @@ def read_image_datasets(train_dir,
 
 def input_snd_mfcc_data(root):
     mfccs, labels = load_snd_mfcc_data(root)
-    mfccs, labels = convert_data_to_numpy(mfccs, labels)
+    mfccs, labels = convert_sound_data_to_numpy(mfccs, labels)
     mfccs = normalize_numpy(mfccs)
     print("Load success : " + str(mfccs.shape))
     #show_nbyn_images(images)
