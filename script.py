@@ -11,7 +11,7 @@ images, labels = convert_data_to_numpy(images, labels)
 print("Load success : " + str(images.shape))
 #show_nbyn_images(images)
 
-from DataConverter import inputdata
+from Tensorflow_DataConverter import inputdata
 datasets = inputdata.read_datasets(rootdir)
 show_random_nbyn_data(datasets.train)
 #show_nbyn_images(datasets.test.images)

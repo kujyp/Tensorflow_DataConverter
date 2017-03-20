@@ -2,7 +2,7 @@
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
-from DataConverter.load.classifier import shuffle_dataset_together
+from Tensorflow_DataConverter.load.classifier import shuffle_dataset_together
 
 
 def show_random_nbyn_data(dataset, n=5):

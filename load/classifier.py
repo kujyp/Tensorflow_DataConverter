@@ -1,5 +1,5 @@
 import numpy
-from DataConverter.object.dataset import DataSet
+from Tensorflow_DataConverter.object.dataset import DataSet
 
 
 def shuffle_numpy_together(nparr1, nparr2):
