@@ -14,6 +14,7 @@ img_label_map = {
         '7': 7,
         '8': 8,
         '9': 9,
+        'none': 10
     }
 
 def load_img_data(root):
