@@ -21,21 +21,14 @@ def input_image_data(root):
     return images, labels
 
 
-def read_image_datasets(train_dir,
-                   reshape=True,
-                   validation_size=100):
+def read_image_datasets(train_dir, test_dir,
+                   reshape=True):
     train_images, train_labels = input_image_data(train_dir)
+    test_images, test_labels = input_image_data(test_dir)
 
-    if not 0 <= validation_size <= len(train_images):
-        raise ValueError(
-            'Validation size should be between 0 and {}. Received: {}.'
-                .format(len(train_images), validation_size))
-    test_images = train_images[:validation_size]
-    test_labels = train_labels[:validation_size]
-    train_images = train_images[validation_size:]
-    train_labels = train_labels[validation_size:]
-
-    train = DataSet(train_images, train_labels, reshape=reshape)
+    train = DataSet(train_images,
+                    train_labels,
+                    reshape=reshape)
     test = DataSet(test_images,
                    test_labels,
                    reshape=reshape)
